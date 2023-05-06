@@ -1,2 +1,3 @@
 # Codes
-Algunos códigos pequeños que guardo aquí
+
+Here you will find some codes and implementation of interesting algorithms in computational algebra, such as: Belekamp's algorithm, Karatsuba, fast Fourier transform and its implementation for efficiently multiplying polynomials, a binary algorithm for the GCD, as well as the typical Euclidean and Extended Euclidean algorithms. One that I am particularly proud of is the Kronecker algorithm, I spent many hours programming it, haha. Anyway, maybe it can be useful to someone. Please note that this is more like a repository of many of my standalone codes or ones I have worked on with my classmates or outside of class, but it is not a specific project.
