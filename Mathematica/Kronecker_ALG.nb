@@ -1,0 +1,247 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8588,        239]
+NotebookOptionsPosition[      7731,        216]
+NotebookOutlinePosition[      8195,        233]
+CellTagsIndexPosition[      8152,        230]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Kronecker", "[", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "n", ",", "i", ",", "xi", ",", "m", ",", "fourier", ",", "divisors", 
+       ",", "h", ",", "H", ",", "CartesianP", ",", "ff", ",", "Tf", ",", 
+       "temp", ",", "T"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"n", "=", 
+       RowBox[{"Exponent", "[", 
+        RowBox[{
+         RowBox[{"c", "[", "x", "]"}], ",", "x"}], "]"}]}], ";", 
+      RowBox[{"m", "=", 
+       RowBox[{"Floor", "[", 
+        RowBox[{"Quotient", "[", 
+         RowBox[{"n", ",", "2"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"temp", "=", "1"}], ",", 
+        RowBox[{"temp", "<", 
+         RowBox[{"m", "+", "1"}]}], ",", 
+        RowBox[{"temp", "++"}], ",", 
+        RowBox[{
+         RowBox[{"xi", "=", 
+          RowBox[{"{", "}"}]}], ";", 
+         RowBox[{"i", "=", 
+          RowBox[{"Length", "[", "xi", "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "0"}], ",", 
+           RowBox[{"i", "<", "temp"}], ",", 
+           RowBox[{"i", "++"}], ",", 
+           RowBox[{
+            RowBox[{"xi", "=", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"xi", ",", "i"}], "]"}]}], ";", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"i", ">", "0"}], " ", "&&", " ", 
+               RowBox[{
+                RowBox[{"Length", "[", "xi", "]"}], "<=", "temp"}]}], ",", 
+              RowBox[{"xi", "=", 
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"xi", ",", 
+                 RowBox[{"-", "i"}]}], "]"}]}]}], "]"}]}]}], "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"fourier", "=", 
+          RowBox[{"c", "/@", "xi"}]}], ";", 
+         RowBox[{"divisors", "=", 
+          RowBox[{"{", "}"}]}], ";", 
+         RowBox[{"H", "=", 
+          RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Length", "[", "fourier", "]"}]}], ",", 
+           RowBox[{"i", "++"}], ",", " ", 
+           RowBox[{
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"divisors", ",", 
+              RowBox[{"Union", "[", 
+               RowBox[{
+                RowBox[{"Divisors", "[", 
+                 RowBox[{"fourier", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+                RowBox[{"-", 
+                 RowBox[{"Divisors", "[", 
+                  RowBox[{"fourier", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}], "]"}]}]}], "]"}]}], "]"}], 
+            ";", 
+            RowBox[{"H", "=", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"H", ",", 
+               RowBox[{"Tuples", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xi", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "}"}], ",", 
+                  RowBox[{"divisors", "[", 
+                   RowBox[{"[", "i", "]"}], "]"}]}], "}"}], "]"}]}], 
+              "]"}]}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"CartesianP", "=", 
+          RowBox[{"Tuples", "[", "H", "]"}]}], ";", 
+         RowBox[{"T", "=", 
+          RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "[", "H", "]"}], "==", "1"}], ",", " ", 
+           RowBox[{
+            RowBox[{"H", "=", 
+             RowBox[{"Flatten", "[", 
+              RowBox[{"H", ",", "1"}], "]"}]}], ";", 
+            RowBox[{"CartesianP", "=", "H"}]}]}], "]"}], ";", "\n", "\t", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Length", "[", "CartesianP", "]"}]}], ",", 
+           RowBox[{"i", "++"}], ",", 
+           RowBox[{"T", "=", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"T", ",", 
+              RowBox[{"Expand", "[", 
+               RowBox[{"InterpolatingPolynomial", "[", 
+                RowBox[{
+                 RowBox[{"CartesianP", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], ",", "x"}], "]"}], "]"}]}], 
+             "]"}]}]}], "]"}], ";", "\n", "\t", 
+         RowBox[{"Tf", "=", 
+          RowBox[{"{", "}"}]}], ";", "\n", "\t", 
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"i", "=", "1"}], ",", 
+           RowBox[{"i", "<=", 
+            RowBox[{"Length", "[", "T", "]"}]}], ",", 
+           RowBox[{"i", "++"}], ",", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"PolynomialRemainder", "[", 
+               RowBox[{
+                RowBox[{"c", "[", "x", "]"}], ",", 
+                RowBox[{"T", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}], ",", "x"}], "]"}], "==", 
+              "0"}], ",", 
+             RowBox[{"Tf", "=", 
+              RowBox[{"AppendTo", "[", 
+               RowBox[{"Tf", ",", 
+                RowBox[{"T", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}]}], "]"}]}], "]"}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"Print", "[", "Tf", "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+      ";"}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+   ")"}]}]], "Input",
+ CellChangeTimes->{3.8923941043936214`*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"eee924ec-859b-441d-a1f0-7720ac95faf7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"c", "[", "x_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"x", "^", "4"}], "+", "4"}], ")"}], 
+  RowBox[{"(*", 
+   RowBox[{"Poliniomio", " ", "a", " ", "verificar"}], "*)"}]}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"0dfb0b56-19f9-44a6-b9ae-65a32b34a525"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Kronecker", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.8923942365291185`*^9, 3.892394249850737*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"6a7c04c6-739d-4882-9aaa-241d3191a604"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Print",
+ CellChangeTimes->{{3.892394246315412*^9, 3.8923942505069275`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[5]:=",ExpressionUUID->"05bed26d-ff06-4917-b996-b366302152e4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "2"}], "-", 
+    RowBox[{"2", " ", "x"}], "-", 
+    SuperscriptBox["x", "2"]}], ",", 
+   RowBox[{
+    RowBox[{"-", "2"}], "+", 
+    RowBox[{"2", " ", "x"}], "-", 
+    SuperscriptBox["x", "2"]}], ",", 
+   RowBox[{"-", "1"}], ",", "1", ",", 
+   RowBox[{"2", "-", 
+    RowBox[{"2", " ", "x"}], "+", 
+    SuperscriptBox["x", "2"]}], ",", 
+   RowBox[{"2", "+", 
+    RowBox[{"2", " ", "x"}], "+", 
+    SuperscriptBox["x", "2"]}]}], "}"}]], "Print",
+ CellChangeTimes->{{3.892394246315412*^9, 3.892394250517929*^9}},
+ CellLabel->
+  "During evaluation of \
+In[5]:=",ExpressionUUID->"e0cc9ebd-35ca-4924-8bd0-1c8577cb2d12"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{925.7142857142857, 563.1428571428571},
+WindowMargins->{{Automatic, -5.14285714285711}, {
+  Automatic, -5.142857142857142}},
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (November 18, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8dec764e-45b7-4253-90fc-32bead039443"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5679, 143, 333, "Input",ExpressionUUID->"eee924ec-859b-441d-a1f0-7720ac95faf7"],
+Cell[6240, 165, 310, 8, 28, "Input",ExpressionUUID->"0dfb0b56-19f9-44a6-b9ae-65a32b34a525"],
+Cell[CellGroupData[{
+Cell[6575, 177, 203, 3, 28, "Input",ExpressionUUID->"6a7c04c6-739d-4882-9aaa-241d3191a604"],
+Cell[CellGroupData[{
+Cell[6803, 184, 216, 5, 22, "Print",ExpressionUUID->"05bed26d-ff06-4917-b996-b366302152e4"],
+Cell[7022, 191, 681, 21, 26, "Print",ExpressionUUID->"e0cc9ebd-35ca-4924-8bd0-1c8577cb2d12"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,116 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"(*",RowBox[{"En"," ","esta"," ","funci\[OAcute]n"," ","dada"," ","una"," ","entrada"," ","n"," ","arroja"," ","una"," ","lista"," ","de"," ","todas"," ","las"," ","tripletas"," ","de"," ","capicuas"," ","que"," ","sumados"," ","den"," ","n"}],"*)"}],"\n",RowBox[
+{RowBox[{RowBox[{"SumPal","[","n_","]"}],":=",RowBox[{"(",RowBox[{"Module","[",RowBox[
+{RowBox[{"{",RowBox[{"Pals",",","i",",","j",",","p1",",","p2",","," ","p3",",","z",",","Sols",",","T"}],"}"}],",","\n",RowBox[
+{RowBox[{"Pals"," ","="," ",RowBox[{"{","}"}]}],";","\n",RowBox[{"Sols"," ","=",RowBox[
+{"{","}"}]}],";","\n",RowBox[{"For","[",RowBox[{RowBox[{"i"," ","="," ","0"}],","," ",RowBox[
+{"i","<","n"}],",",RowBox[{"i","++"}],","," ",RowBox[{"If","[",RowBox[{RowBox[{"PalindromeQ","[","i","]"}],",",RowBox[
+{"Pals","=",RowBox[{"Append","[",RowBox[{"Pals",","," ","i"}],"]"}]}]}],"]"}]}],"]"}],";","\n",RowBox[
+{"T","=",RowBox[{"Length","[","Pals","]"}]}],";","\n",RowBox[{"For","[",RowBox[{RowBox[
+{"i","=","1"}],","," ",RowBox[{"i","\[LessEqual]","T"}],","," ",RowBox[{"i","++"}],",",RowBox[
+{RowBox[{"p1","=",RowBox[{"Pals","[",RowBox[{"[","i","]"}],"]"}]}],";","\n",RowBox[
+{"For","[",RowBox[{RowBox[{"j","=","1"}],","," ",RowBox[{"j","\[LessEqual]","T"}],",",RowBox[
+{"j","++"}],","," ",RowBox[{RowBox[{"p2","=",RowBox[{"Pals","[",RowBox[{"[","j","]"}],"]"}]}],";","\n",RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"p1","+","p2"}],">","n"}],",",RowBox[{"Break","[","]"}],",",RowBox[
+{"For","[",RowBox[{RowBox[{"z","=","1"}],",",RowBox[{"z","\[LessEqual]","T"}],",",RowBox[
+{"z","++"}],",",RowBox[{RowBox[{"p3","=",RowBox[{"Pals","[",RowBox[{"[","z","]"}],"]"}]}],";","\n",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"p1","+","p2","+","p3"}],"==","n"}],",",RowBox[
+{RowBox[{"Sols","=",RowBox[{"Append","[",RowBox[{"Sols",",",RowBox[{"{",RowBox[{"p1",",","p2",",","p3"}],"}"}]}],"]"}]}],";",RowBox[
+{"Break","[","]"}]}]}],"]"}]}]}],"\n","]"}]}],"\n","]"}],"q"}]}]}],"\n","]"}]}]}],"\n","]"}],";","\n",RowBox[
+{"Return","[","Sols","]"}]}]}],"\n","]"}],"\n",")"}]}],"\n"}]}]],"Input",ExpressionUUID -> "0b3ec9f2-f6f6-465a-a5ba-c582230a3bc4"],Cell[
+BoxData[
+RowBox[{RowBox[{"(*",RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{RowBox[{"En"," ","esta"," ","funci\[OAcute]n"," ","dada"," ","una"," ","entrada"," ","n"," ",RowBox[
+{"arroja",":"," ","\n","1"}]}],")"}]," ","La"," ","cantidad"," ","de"," ","formas"," ","para"," ","representar"," ","n"," ","como"," ","suma"," ","de"," ","3"," ","capicuas"," ","mayores"," ","o"," ","iguales"," ","que"," ","0.","\n"," ","2"}],")"}]," ","Una"," ","lista"," ","de"," ","todas"," ","las"," ","tripletas"," ","de"," ","primos"," ","capicuas"," ","que"," ","sumados"," ","den"," ",RowBox[
+{"n",".","\n","\[NonBreakingSpace]","3"}]}],")"}]," ","La"," ","cantidad"," ","de"," ","elementos"," ","del"," ","inciso"," ","2."}],"\n","*)"}],"\n",RowBox[
+{RowBox[{"PrimeSumPal","[","n_","]"}],":=",RowBox[{"(",RowBox[{"Module","[",RowBox[
+{RowBox[{"{",RowBox[{"Pals",",","i",",","Sols"}],"}"}],",","\n",RowBox[{RowBox[{"Pals"," ","="," ",RowBox[
+{"SumPal","[","n","]"}]}],";","\n",RowBox[{"Sols"," ","="," ",RowBox[{"{","}"}]}],";","\n",RowBox[
+{"For","[",RowBox[{RowBox[{"i"," ","="," ","1"}],","," ",RowBox[{"i","\[LessEqual]",RowBox[
+{"Length","[","Pals","]"}]}],","," ",RowBox[{"i","++"}],",",RowBox[{"If","[",RowBox[
+{RowBox[{RowBox[{"Map","[",RowBox[{"PrimeQ",",",RowBox[{"{",RowBox[{RowBox[{RowBox[
+{"Pals","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[{"[","1","]"}],"]"}],",",RowBox[
+{RowBox[{"Pals","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[{"[","2","]"}],"]"}],",",RowBox[
+{RowBox[{"Pals","[",RowBox[{"[","i","]"}],"]"}],"[",RowBox[{"[","3","]"}],"]"}]}],"}"}]}],"]"}],"==",RowBox[
+{"{",RowBox[{"True",","," ","True",","," ","True"}],"}"}]}],",",RowBox[{"Sols"," ","="," ",RowBox[
+{"Append","[",RowBox[{"Sols",","," ",RowBox[{"Pals","[",RowBox[{"[","i","]"}],"]"}]}],"]"}]}]}],"]"}]}],"\n","]"}],";","\n",RowBox[
+{"Return","[",RowBox[{"{",RowBox[{RowBox[{"Length","[","Pals","]"}],",","Sols",",",RowBox[
+{"Length","[","Sols","]"}]}],"}"}],"]"}]}]}],"\n","]"}],"\n",")"}]}]}]],"Input",ExpressionUUID -> "6ee6b566-43e9-44f0-a072-b6f09f8dc16d"],Cell[
+BoxData[
+{RowBox[{RowBox[{"ans1"," ","="," ",RowBox[{"PrimeSumPal","[","800","]"}]}],";"}],"\n",RowBox[
+{RowBox[{"ans2"," ","="," ",RowBox[{"PrimeSumPal","[","2018","]"}]}],";"}]}],"Input",
+CellLabel -> "In[73]:= ",ExpressionUUID -> "16f6f4a2-1653-434d-a6d4-11c24aa8c146"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{RowBox[{"(*",RowBox[{"Total"," ","de"," ","representantes"," ","de"," ","800"," ","y"," ","2018"," ","como"," ","suma"," ","de"," ","tres"," ","capicuas"," ","mayores"," ","o"," ","iguales"," ","a"," ","0"}],"*)"}],"\n",RowBox[
+{"Print","[",RowBox[{"\"Total de 800: \"",",",RowBox[{"ans1","[",RowBox[{"[","1","]"}],"]"}],","," ","\"\\n Total de 2018: \"",",",RowBox[
+{"ans2","[",RowBox[{"[","1","]"}],"]"}]}],"]"}]}]],"Input",CellLabel -> "In[79]:= ",
+ExpressionUUID -> "94723ff4-2b5e-45f9-8a48-fb26b7e86d5b"],Cell[
+BoxData[InterpretationBox[
+RowBox[{"\"Total de 800: \"","\[InvisibleSpace]","471","\[InvisibleSpace]","\"\\n Total de 2018: \"","\[InvisibleSpace]","2163"}],
+SequenceForm["Total de 800: ",471,"\n Total de 2018: ",2163],Editable -> False],StandardForm],
+"Print",ExpressionUUID -> "8332ab37-2e44-4099-a464-23fc49f0013e"]},Open],ExpressionUUID -> "b67e301f-1a2f-4885-adf0-d3ec0d86ebdc"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{RowBox[{"(*",RowBox[{"Lista"," ","de"," ","representantes"," ","de"," ","800"," ","y"," ","2018"," ","como"," ","suma"," ","de"," ","tres"," ","primos"," ","capicuas"," ","mayores"," ","a"," ","0"}],"*)"}],"\n",RowBox[
+{"Print","[",RowBox[{"\"Lista de 800: \"",",",RowBox[{"ans1","[",RowBox[{"[","2","]"}],"]"}],","," ","\"\\n Lista de 2018: \"",",",RowBox[
+{"ans2","[",RowBox[{"[","2","]"}],"]"}]}],"]"}]}]],"Input",CellLabel -> "In[76]:= ",
+ExpressionUUID -> "c77e737e-d312-4a33-a80a-8a22d7d39cfc"],Cell[
+BoxData[InterpretationBox[
+RowBox[{"\"Lista de 800: \"","\[InvisibleSpace]",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[
+{"2",",","11",",","787"}],"}"}],",",RowBox[{"{",RowBox[{"2",",","787",",","11"}],"}"}],",",RowBox[
+{"{",RowBox[{"11",",","2",",","787"}],"}"}],",",RowBox[{"{",RowBox[{"11",",","787",",","2"}],"}"}],",",RowBox[
+{"{",RowBox[{"787",",","2",",","11"}],"}"}],",",RowBox[{"{",RowBox[{"787",",","11",",","2"}],"}"}]}],"}"}],"\[InvisibleSpace]","\"\\n Lista de 2018: \"","\[InvisibleSpace]",RowBox[
+{"{","}"}]}],SequenceForm["Lista de 800: ",{{2,11,787},{2,787,11},{11,2,787},{11,787,2},{787,2,11},{787,11,2}},
+"\n Lista de 2018: ",{}],Editable -> False],StandardForm],"Print",ExpressionUUID -> "f9493b10-fed7-46d7-a7a6-2bf9ca1a6621"]},
+Open],ExpressionUUID -> "02a82768-bc43-4aee-b30e-42ef7ffd5010"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{RowBox[{"(*",RowBox[{"Total"," ","de"," ","representantes"," ","de"," ","800"," ","y"," ","2018"," ","como"," ","suma"," ","de"," ","tres"," ","primos"," ","capicuas"," ","mayores"," ","a"," ","0"}],"*)"}],"\n",RowBox[
+{"Print","[",RowBox[{"\"Total de 800 \"",","," ",RowBox[{"ans1","[",RowBox[{"[","3","]"}],"]"}],","," ","\"\\n Total de 800: \"",","," ",RowBox[
+{"ans2","[",RowBox[{"[","3","]"}],"]"}]}],"]"}]}]],"Input",CellLabel -> "In[78]:= ",
+ExpressionUUID -> "99431a08-71bf-476f-b4e3-191eebcdeac7"],Cell[
+BoxData[InterpretationBox[
+RowBox[{"\"Total de 800 \"","\[InvisibleSpace]","6","\[InvisibleSpace]","\"\\n Total de 800: \"","\[InvisibleSpace]","0"}],
+SequenceForm["Total de 800 ",6,"\n Total de 800: ",0],Editable -> False],StandardForm],
+"Print",ExpressionUUID -> "b95c13f4-6a9a-4d51-a152-62de40399957"]},Open],ExpressionUUID -> "58d43c8b-07bd-49db-b1aa-0cb7d22d3eab"],Cell[
+BoxData[
+""],"Input",ExpressionUUID -> "e98b0107-c94b-4873-877f-5b46eeb05556"],Cell[
+BoxData[
+RowBox[{RowBox[{"(*",RowBox[{"En"," ","esta"," ","funci\[OAcute]n"," ","dada"," ","una"," ","entrada"," ","n"," ","arroja"," ","una"," ","lista"," ","de"," ","todas"," ","las"," ","tripletas"," ","de"," ","capicuas"," ","que"," ","sumados"," ","den"," ","n"," ","considerando"," ","que"," ","todas"," ","las"," ","permutaciones"," ","de"," ","una"," ","soluci\[OAcute]n"," ","son"," ","iguales"}],"*)"}],"\n",RowBox[
+{RowBox[{"CSumPal","[","n_","]"}],":=",RowBox[{"(",RowBox[{"Module","[",RowBox[{RowBox[
+{"{",RowBox[{"Pals",",","i",",","j",",","p1",",","p2",","," ","p3",",","z",",","Sols",",","T"}],"}"}],",","\n",RowBox[
+{RowBox[{"Pals"," ","="," ",RowBox[{"{","}"}]}],";","\n",RowBox[{"Sols"," ","=",RowBox[
+{"{","}"}]}],";","\n",RowBox[{"For","[",RowBox[{RowBox[{"i"," ","="," ","0"}],","," ",RowBox[
+{"i","<","n"}],",",RowBox[{"i","++"}],","," ",RowBox[{"If","[",RowBox[{RowBox[{"PalindromeQ","[","i","]"}],",",RowBox[
+{"Pals","=",RowBox[{"Append","[",RowBox[{"Pals",","," ","i"}],"]"}]}]}],"]"}]}],"]"}],";","\n",RowBox[
+{"T","=",RowBox[{"Length","[","Pals","]"}]}],";","\n",RowBox[{"For","[",RowBox[{RowBox[
+{"i","=","1"}],","," ",RowBox[{"i","\[LessEqual]","T"}],","," ",RowBox[{"i","++"}],",",RowBox[
+{RowBox[{"p1","=",RowBox[{"Pals","[",RowBox[{"[","i","]"}],"]"}]}],";","\n",RowBox[
+{"For","[",RowBox[{RowBox[{"j","=","1"}],","," ",RowBox[{"j","\[LessEqual]","T"}],",",RowBox[
+{"j","++"}],","," ",RowBox[{RowBox[{"p2","=",RowBox[{"Pals","[",RowBox[{"[","j","]"}],"]"}]}],";","\n",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"p1","+","p2"}],">","n"}],",",RowBox[{"Break","[","]"}],",",RowBox[
+{"For","[",RowBox[{RowBox[{"z","=","1"}],",",RowBox[{"z","\[LessEqual]","T"}],",",RowBox[
+{"z","++"}],",",RowBox[{RowBox[{"p3","=",RowBox[{"Pals","[",RowBox[{"[","z","]"}],"]"}]}],";","\n",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"p1","+","p2","+","p3"}],"==","n"}],",",RowBox[
+{RowBox[{"If","[",RowBox[{RowBox[{"MemberQ","[",RowBox[{"Sols",",",RowBox[{"Sort","[",RowBox[
+{"{",RowBox[{"p1",",","p2",",","p3"}],"}"}],"]"}]}],"]"}],",",RowBox[{"Break","[","]"}],",",RowBox[
+{"Sols","=",RowBox[{"Append","[",RowBox[{"Sols",",",RowBox[{"Sort","[",RowBox[{"{",RowBox[
+{"p1",",","p2",",","p3"}],"}"}],"]"}]}],"]"}]}]}],"]"}],";",RowBox[{"Break","[","]"}]}]}],"]"}]}]}],"\n","]"}]}],"\n","]"}]}]}],"\n","]"}]}]}],"\n","]"}],";","\n",RowBox[
+{"Return","[","Sols","]"}]}]}],"\n","]"}],"\n",")"}]}]}]],"Input",CellLabel -> "In[80]:= ",
+ExpressionUUID -> "76850159-227d-4f8d-a3b5-c65cfce8c4fd"],Cell[
+BoxData[{RowBox[{RowBox[
+{"cans1","=",RowBox[{"Length","[",RowBox[{"CSumPal","[","800","]"}],"]"}]}],";"}],"\n",RowBox[
+{RowBox[{"cans2","=",RowBox[{"Length","[",RowBox[{"CSumPal","[","2018","]"}],"]"}]}],";"}]}],
+"Input",CellLabel -> "In[86]:= ",ExpressionUUID -> "1395c5a7-f656-4d81-855a-95bf72bbc33a"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{RowBox[{"(*",RowBox[{"Total"," ","de"," ","representantes"," ","de"," ","800"," ","y"," ","2018"," ","como"," ","suma"," ","de"," ","tres"," ","capicuas"," ","mayores"," ","o"," ","iguales"," ","a"," ","0"," ","con"," ","las"," ","nuevas"," ","consideraciones"}],"*)"}],"\n",RowBox[
+{"Print","[",RowBox[{"\"Total de 800: \"",",","cans1",","," ","\"\\n Total de 2018: \"",",","cans2"}],"]"}]}]],
+"Input",CellLabel -> "In[88]:= ",ExpressionUUID -> "a95aa158-0ba4-46a7-8f7c-9c065added3b"],Cell[
+BoxData[
+InterpretationBox[RowBox[{"\"Total de 800: \"","\[InvisibleSpace]","79","\[InvisibleSpace]","\"\\n Total de 2018: \"","\[InvisibleSpace]","369"}],
+SequenceForm["Total de 800: ",79,"\n Total de 2018: ",369],Editable -> False],StandardForm],
+"Print",ExpressionUUID -> "e99f4c13-ccc7-41e1-b649-61a8d5dd935d"]},Open],ExpressionUUID -> "c86e3649-5b49-4994-b30d-6b7bcc1867a6"],Cell[
+BoxData[
+""],"Input",ExpressionUUID -> "b4364c7e-6696-427b-b79f-c708dccb4f28"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "13.1 for Wolfram Cloud 1.63.0.1 (July 14, 2022)"]
